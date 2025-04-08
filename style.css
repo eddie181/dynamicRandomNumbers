@@ -1,0 +1,185 @@
+/* 基本樣式與響應式設計 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* 稍微加寬以容納三個 slider */
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* 設定區塊樣式 */
+.settings {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column; /* 預設垂直排列 */
+    gap: 20px; /* 稍微增加間距 */
+}
+
+.range-setting,
+.interval-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+}
+
+/* 標籤樣式 (包含數值顯示) */
+.range-setting label,
+.interval-setting label {
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    display: flex; /* 使用 flex 來對齊標籤文字和數值 */
+    justify-content: space-between; /* 讓文字靠左，數值靠右 */
+    align-items: center;
+}
+
+/* Slider 數值顯示的 Span */
+#min-val-display,
+#max-val-display,
+#interval-display {
+    font-weight: normal;
+    color: #007bff;
+    background-color: #e9ecef; /* 給數值一個背景色 */
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    min-width: 40px; /* 確保有足夠寬度 */
+    text-align: right;
+}
+
+/* 滑桿樣式 */
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    margin-top: 5px;
+    accent-color: #007bff; /* 改變滑桿顏色 (現代瀏覽器) */
+}
+
+/* 亂數顯示區塊 */
+#random-number-display {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #0056b3; /* 稍微加深顏色 */
+    background-color: #e9ecef;
+    padding: 20px 15px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    transition: background-color 0.3s ease; /* 添加一點過渡效果 */
+}
+
+/* 控制按鈕 */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-weight: bold;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#start-btn {
+    background-color: #28a745;
+    color: white;
+}
+#start-btn:hover:not(:disabled) { /* 只有非禁用時 hover 有效果 */
+    background-color: #218838;
+}
+#start-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#stop-btn {
+    background-color: #dc3545;
+    color: white;
+}
+#stop-btn:hover:not(:disabled) {
+    background-color: #c82333;
+}
+#stop-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.status {
+    margin-top: 15px;
+    color: #6c757d;
+    min-height: 1.2em;
+    font-size: 0.9em;
+}
+
+/* 響應式調整：針對平板電腦或較寬螢幕 */
+@media (min-width: 600px) { /* 稍微調整斷點 */
+    .settings {
+        flex-direction: row;
+        align-items: flex-start; /* 頂部對齊可能更好看 */
+        gap: 25px;
+    }
+
+    .range-setting,
+    .interval-setting {
+        flex: 1; /* 讓每個設定區塊等寬 */
+        /* 不需要最大寬度限制，讓 flexbox 自動分配 */
+    }
+
+    .range-setting label,
+    .interval-setting label {
+       /* 維持 space-between 就好，不用置中 */
+       /* justify-content: center; */ /* 取消置中 */
+       /* text-align: left; */ /* 確保標籤文字靠左 */
+    }
+
+
+    #random-number-display {
+        font-size: 4.5rem;
+    }
+}
+
+/* 響應式調整：更寬的螢幕 */
+@media (min-width: 768px) {
+    .container {
+        padding: 35px 45px;
+    }
+     #random-number-display {
+        font-size: 5rem;
+    }
+}
