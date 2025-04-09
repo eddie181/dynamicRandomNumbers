@@ -36,6 +36,8 @@ JavaScript：處理滑桿互動、亂數生成與控制邏輯。
 
 可直接透過瀏覽器開啟 index.html 使用。
 
+https://gtisland.com/randomNoteName/
+
 ## 原始碼
 
 以下是這個專案中較具特色或重要的原始碼設計：
